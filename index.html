@@ -15,14 +15,25 @@
     <header>
         <h1 class="text-white bg-dark text-center py-3 mb-0">Weather Dashboard</h1>
     </header>
-    <div class="container ml-0 mr-0 w-100">
+    <div class="container ml-0 mr-0 mw-100">
         <div class="row">
-            <div class="col-3 pl-2 pt-1 card card-body bg-light border-0"">
-                <h6>Search for a City:</h6>
+            <div class="col-3 pl-3 pt-2 card card-body bg-light border-0">
+                <h5>Search for a City:</h5>
+                <div class="form-group mb-0">
+                    <div class="input-group">
+                        <input type="search" class="form-control" id="inputCity" style="width: 200px">
+                        <button type="submit" class="btn btn-primary" id="inputButton">Go!</button>
+                        </span>
+                    </div>            
+                </div>
+                <hr>
+                <div>
+                    <!-- Cities Buttons here -->
+                </div>
             </div>
             <div class="col-9 card border-0">
                 <div class="row">
-                    <div class="card card-body ml-3 my-3 text-dark">
+                    <div class="card card-body mx-3 my-3 text-dark">
                         <h4 class="strong pt-2" id="city">City</h4>
                         <div class="pt-2" id="cityTemp">Temperature: </div>
                         <div class="pt-2" id="cityHumid">Humidity: </div>
@@ -32,35 +43,35 @@
                 </div>
                 <div class="row">
                     <div>
-                    <h4 class="ml-3 pb-1">5-Day Forecast:</h4>
+                        <h4 class="ml-3 pb-1">5-Day Forecast:</h4>
                     </div>
-                </div>        
-                <div class="row">        
-                    <div class="card card-body ml-3 mr-3 px-2 py-2 float-left text-white bg-primary">
+                </div>
+                <div class="row">
+                    <div class="card card-body ml-3 mr-3 px-2 py-2 mw-20 float-left text-white bg-primary">
                         <h5 class="strong pb-2" id="day1">Date</h5>
                         <div class="py-2" id="day1Icon">Sunny</div>
                         <div class="py-2" id="day1Temp">Temp: 60</div>
                         <div class="pt-2" id="day1Humid">Humidity: 30%</div>
                     </div>
-                    <div class="card card-body ml-3 mr-3 px-2 py-2 float-left text-white bg-primary">
+                    <div class="card card-body ml-3 mr-3 px-2 py-2 mw-20 float-left text-white bg-primary">
                         <h5 class="strong pb-2" id="day2"></h5>
                         <div class="py-2" id="day2Icon"></div>
                         <div class="py-2" id="day2Temp"></div>
                         <div class="pt-2" id="day2Humid"></div>
                     </div>
-                    <div class="card card-body ml-3 mr-3 px-2 py-2 float-left text-white bg-primary">
+                    <div class="card card-body ml-3 mr-3 px-2 py-2 mw-20 float-left text-white bg-primary">
                         <h5 class="strong pb-2" id="day3"></h5>
                         <div class="py-2" id="day3Icon"></div>
                         <div class="py-2" id="day3Temp"></div>
                         <div class="pt-2" id="day3Humid"></div>
                     </div>
-                    <div class="card card-body ml-3 mr-3 px-2 py-2 float-left text-white bg-primary">
+                    <div class="card card-body ml-3 mr-3 px-2 py-2 mw-20 float-left text-white bg-primary">
                         <h5 class="strong pb-2" id="day4"></h5>
                         <div class="py-2" id="day4Icon"></div>
                         <div class="py-2" id="day4Temp"></div>
                         <div class="pt-2" id="day4Humid"></div>
                     </div>
-                    <div class="card card-body ml-3 px-2 py-2 float-left text-white bg-primary">
+                    <div class="card card-body ml-3 mr-3 px-2 py-2 mw-20 float-left text-white bg-primary">
                         <h5 class="strong pb-2" id="day5"></h5>
                         <div class="py-2" id="day5Icon"></div>
                         <div class="py-2" id="day5Temp"></div>
@@ -75,7 +86,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="./Assets/script.js"></script>
 </body>
 
