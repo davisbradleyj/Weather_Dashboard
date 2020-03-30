@@ -102,7 +102,54 @@ function currForecast() {
     })
   })
 }
-// function futForecast() {
 
-//     }
+function futForecast() {
+  $.ajax({
+    url: 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&APPID=0337ee5c21f2fbff84511550c3460591',
+    method: "GET"
+  }).then(function (response) {
+    console.log(response)
+    var day = response.list
+    $("#day1").text(day[0].dt_txt.split(" ")[0])
+    console.log(day[0].dt_txt.split(" ")[0])
+    // $("#day1Icon").text(day[0].
+    // console.log(day[0].)
+    $("#day1Temp").text("Temp: " + ((((day[0].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
+    console.log("Temp: " + ((((day[0].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
+    $("#day1Humid").text("Humidity: " + day[0].main.humidity + "%")
+    console.log("Humidity: " + day[0].main.humidity + "%")
+    $("#day2").text(day[9].dt_txt.split(" ")[0])
+    console.log(day[9].dt_txt.split(" ")[0])
+    // $("#day1Icon").text(day[0].
+    // console.log(day[0].)
+    $("#day2Temp").text("Temp: " + ((((day[9].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
+    console.log("Temp: " + ((((day[9].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
+    $("#day2Humid").text("Humidity: " + day[9].main.humidity + "%")
+    console.log("Humidity: " + day[9].main.humidity + "%")
+    $("#day3").text(day[17].dt_txt.split(" ")[0])
+    console.log(day[17].dt_txt.split(" ")[0])
+    // $("#day1Icon").text(day[0].
+    // console.log(day[0].)
+    $("#day3Temp").text("Temp: " + ((((day[17].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
+    console.log("Temp: " + ((((day[17].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
+    $("#day3Humid").text("Humidity: " + day[17].main.humidity + "%")
+    console.log("Humidity: " + day[17].main.humidity + "%")
+    $("#day4").text(day[25].dt_txt.split(" ")[0])
+    console.log(day[25].dt_txt.split(" ")[0])
+    // $("#day1Icon").text(day[0].
+    // console.log(day[0].)
+    $("#day4Temp").text("Temp: " + ((((day[25].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
+    console.log("Temp: " + ((((day[25].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
+    $("#day4Humid").text("Humidity: " + day[25].main.humidity + "%")
+    console.log("Humidity: " + day[25].main.humidity + "%")
+    $("#day5").text(day[33].dt_txt.split(" ")[0])
+    console.log(day[33].dt_txt.split(" ")[0])
+    // $("#day1Icon").text(day[0].
+    // console.log(day[0].)
+    $("#day5Temp").text("Temp: " + ((((day[33].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
+    console.log("Temp: " + ((((day[33].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
+    $("#day5Humid").text("Humidity: " + day[33].main.humidity + "%")
+    console.log("Humidity: " + day[33].main.humidity + "%")
+  })
+}
 
