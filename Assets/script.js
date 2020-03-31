@@ -1,5 +1,5 @@
 var city;
-var cities = ["New York","Chicago","Miami","Dallas"];
+var cities;
 var date = moment().format('MMMM Do YYYY')
 var date1 = moment().add(1, 'days').format('MMMM Do YYYY');
 var date2 = moment().add(2, 'days').calendar();
@@ -12,12 +12,19 @@ var long;
 var uV;
 var weatImg;
 
+function tellWeather(){
+  retrieveCities()
+  renderCities()
+  currForecast()
+  futForecast()
+}
 
-jQuery.ajaxPrefilter(function (options) {
-  if (options.crossDomain && jQuery.support.cors) {
-    options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
-  }
-});
+tellWeather()
+// jQuery.ajaxPrefilter(function (options) {
+//   if (options.crossDomain && jQuery.support.cors) {
+//     options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
+//   }
+// });
 
 // *********************
 // Needs a screen for null entry to prevent button creation, also, need to prevent duplicates
@@ -52,11 +59,10 @@ function renderCities() {
     newCity.text(cities[i]);
     // Adding the button to the buttons-view div
     $("#cityButton").append(newCity);
-    currForecast(newCity);
+    currForecast();
     saveCities();
   } 
 } 
-renderCities()
 
 function saveCities() {
   localStorage.setItem("saveCities", JSON.stringify(cities));
@@ -64,6 +70,7 @@ function saveCities() {
 
 function retrieveCities() {
   cities = JSON.parse(localStorage.getItem("saveCities"));
+  console.log(cities)
   renderCities()
 }
 
