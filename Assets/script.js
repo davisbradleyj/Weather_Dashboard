@@ -1,6 +1,6 @@
-var city;
-var cities;
-var date = moment().format('MMMM Do YYYY')
+var cities = JSON.parse(localStorage.getItem("saveCities")) || [];
+var city = cities[0] || "Miami";
+var date = moment().format('MMMM Do YYYY');
 var date1 = moment().add(1, 'days').format('MMMM Do YYYY');
 var date2 = moment().add(2, 'days').calendar();
 var date3 = moment().add(3, 'days').calendar();
@@ -12,33 +12,31 @@ var long;
 var uV;
 var weatImg;
 
-function tellWeather(){
-  retrieveCities()
+function tellWeather() {
   renderCities()
   currForecast()
   futForecast()
 }
-
 tellWeather()
+
 // jQuery.ajaxPrefilter(function (options) {
 //   if (options.crossDomain && jQuery.support.cors) {
 //     options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
 //   }
 // });
 
-// *********************
-// Needs a screen for null entry to prevent button creation, also, need to prevent duplicates
-// *********************
 $("#inputButton").on("click", function (event) {
   event.preventDefault()
   city = $("#inputCity").val().trim()
-  console.log(city)
-  // Adding city from the textbox to our array
-  cities.push(city);
-  // Calling renderButtons which handles the processing of our cities array
-  currForecast(city);
-  futForecast(city);
-  renderCities();
+  if (city !== "") {
+    // Adding city from the textbox to our array
+    cities.push(city);
+    $("#inputCity").val("");
+    // Calling renderButtons which handles the processing of our cities array
+    currForecast(city);
+    futForecast(city);
+    renderCities();
+  }
 })
 
 // Function for displaying cities as a button on the left column
@@ -61,17 +59,11 @@ function renderCities() {
     $("#cityButton").append(newCity);
     currForecast();
     saveCities();
-  } 
-} 
+  }
+}
 
 function saveCities() {
   localStorage.setItem("saveCities", JSON.stringify(cities));
-}
-
-function retrieveCities() {
-  cities = JSON.parse(localStorage.getItem("saveCities"));
-  console.log(cities)
-  renderCities()
 }
 
 $(document).on("click", "#cityBtn", function () {
@@ -126,19 +118,19 @@ function futForecast() {
     $("#day1Temp").text("Temp: " + ((((day[0].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
     $("#day1Humid").text("Humidity: " + day[0].main.humidity + "%")
     $("#day2").text(day[9].dt_txt.split(" ")[0])
-    $("#day2Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[8].weather[0].icon + ".png />"))
+    $("#day2Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[9].weather[0].icon + ".png />"))
     $("#day2Temp").text("Temp: " + ((((day[9].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
     $("#day2Humid").text("Humidity: " + day[9].main.humidity + "%")
     $("#day3").text(day[17].dt_txt.split(" ")[0])
-    $("#day3Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[16].weather[0].icon + ".png />"))
+    $("#day3Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[17].weather[0].icon + ".png />"))
     $("#day3Temp").text("Temp: " + ((((day[17].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
     $("#day3Humid").text("Humidity: " + day[17].main.humidity + "%")
     $("#day4").text(day[25].dt_txt.split(" ")[0])
-    $("#day4Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[24].weather[0].icon + ".png />"))
+    $("#day4Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[25].weather[0].icon + ".png />"))
     $("#day4Temp").text("Temp: " + ((((day[25].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
     $("#day4Humid").text("Humidity: " + day[25].main.humidity + "%")
     $("#day5").text(day[33].dt_txt.split(" ")[0])
-    $("#day5Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[32].weather[0].icon + ".png />"))
+    $("#day5Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[33].weather[0].icon + ".png />"))
     $("#day5Temp").text("Temp: " + ((((day[33].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
     $("#day5Humid").text("Humidity: " + day[33].main.humidity + "%")
   })
