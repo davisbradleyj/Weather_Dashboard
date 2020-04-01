@@ -77,7 +77,7 @@ function currForecast() {
   }).then(function (response) {
     forecast = response
     // declare an image tag to place the weather icon with city and date
-    weatImg = $("<img src=http://openweathermap.org/img/wn/" + forecast.weather[0].icon + ".png />")
+    weatImg = $("<img src=https://openweathermap.org/img/wn/" + forecast.weather[0].icon + ".png />")
     $("#city").text(city + " - " + date)
     $("#city").append(weatImg)
     // add text for temp, humidity, and wind speed
@@ -117,23 +117,23 @@ function futForecast() {
   }).then(function (response) {
     var day = response.list
     $("#day1").text(day[2].dt_txt.split(" ")[0])
-    $("#day1Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[2].weather[0].icon + ".png />"))
+    $("#day1Icon").html($("<img src=https://openweathermap.org/img/wn/" + day[2].weather[0].icon + ".png />"))
     $("#day1Temp").text("Temp: " + ((((day[2].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
     $("#day1Humid").text("Humidity: " + day[2].main.humidity + "%")
     $("#day2").text(day[10].dt_txt.split(" ")[0])
-    $("#day2Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[10].weather[0].icon + ".png />"))
+    $("#day2Icon").html($("<img src=https://openweathermap.org/img/wn/" + day[10].weather[0].icon + ".png />"))
     $("#day2Temp").text("Temp: " + ((((day[10].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
     $("#day2Humid").text("Humidity: " + day[10].main.humidity + "%")
     $("#day3").text(day[18].dt_txt.split(" ")[0])
-    $("#day3Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[18].weather[0].icon + ".png />"))
+    $("#day3Icon").html($("<img src=https://openweathermap.org/img/wn/" + day[18].weather[0].icon + ".png />"))
     $("#day3Temp").text("Temp: " + ((((day[18].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
     $("#day3Humid").text("Humidity: " + day[18].main.humidity + "%")
     $("#day4").text(day[26].dt_txt.split(" ")[0])
-    $("#day4Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[26].weather[0].icon + ".png />"))
+    $("#day4Icon").html($("<img src=https://openweathermap.org/img/wn/" + day[26].weather[0].icon + ".png />"))
     $("#day4Temp").text("Temp: " + ((((day[26].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
     $("#day4Humid").text("Humidity: " + day[26].main.humidity + "%")
     $("#day5").text(day[34].dt_txt.split(" ")[0])
-    $("#day5Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[34].weather[0].icon + ".png />"))
+    $("#day5Icon").html($("<img src=https://openweathermap.org/img/wn/" + day[34].weather[0].icon + ".png />"))
     $("#day5Temp").text("Temp: " + ((((day[34].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
     $("#day5Humid").text("Humidity: " + day[34].main.humidity + "%")
   })
