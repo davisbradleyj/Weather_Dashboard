@@ -16,7 +16,7 @@ While not quite as dynamic as the day planner, there are still some dynamic elem
 
 I ran into a little trouble getting the local storage to set, and I am still doing my best not to overwrite global variables within functions by redeclaring the variable.  This led to a bit of a block while trying to adequately render the cities. The other major block came about with the the assigment of color blocks to the UV rating, and accessing that data as it required sourcing through latitude and longitude coordinates. Code snippets of this js code is below.
 
-Final product images is direcly below
+Final product image is directly below
 
 <img src="https://github.com/davisbradleyj/Weather_Dashboard/blob/master/Assets/forecast.png">
 
