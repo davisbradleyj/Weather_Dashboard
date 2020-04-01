@@ -64,26 +64,27 @@ function saveCities() {
 
 // pulls up a city and displays its current weather and forecast
 $(document).on("click", "#cityBtn", function () {
-  console.log("clicked")
   city = $(this).text()
   currForecast()
   futForecast()
 })
 
-// api call to gather information for current forecast and displays on page
+// api call to gather information for current forecast and display on page
 function currForecast() {
   $.ajax({
     url: 'https://api.openweathermap.org/data/2.5/weather?q=' + city + '&APPID=0337ee5c21f2fbff84511550c3460591',
     method: "GET"
   }).then(function (response) {
     forecast = response
-    console.log(forecast)
+    // declare an image tag to place the weather icon with city and date
     weatImg = $("<img src=http://openweathermap.org/img/wn/" + forecast.weather[0].icon + ".png />")
     $("#city").text(city + " - " + date)
     $("#city").append(weatImg)
+    // add text for temp, humidity, and wind speed
     $("#cityTemp").text("Temperature: " + ((((forecast.main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
     $("#cityHumid").text("Humidity: " + forecast.main.humidity + "%")
     $("#cityWind").text("Wind Speed: " + (forecast.wind.speed) + " MPH")
+    // assign latitude and longitude for api call to determine the UV information, then make the API call
     lat = forecast.coord.lat
     long = forecast.coord.lon
     $.ajax({
@@ -91,7 +92,6 @@ function currForecast() {
       method: "GET"
     }).then(function (response) {
       uV = response.value
-      console.log(uV)
         if (uV < 3) {
           $(".uvButton").attr("id", "low");
         }
@@ -116,7 +116,6 @@ function futForecast() {
     method: "GET"
   }).then(function (response) {
     var day = response.list
-    console.log(day)
     $("#day1").text(day[2].dt_txt.split(" ")[0])
     $("#day1Icon").html($("<img src=http://openweathermap.org/img/wn/" + day[2].weather[0].icon + ".png />"))
     $("#day1Temp").text("Temp: " + ((((day[2].main.temp) - 273.15) * (9 / 5) + 32).toFixed(1)) + "°F")
