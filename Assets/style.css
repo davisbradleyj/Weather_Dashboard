@@ -1,3 +1,19 @@
-#cityBtn{
-    
+#low {
+    background-color: green;
+    color: white;
+}
+
+#med {
+    background-color: orange;
+    color: black;  
+}
+
+#high {
+    background-color: red;
+    color: black;
+}
+
+#v-high {
+    background-color: black;
+    color: white;
 }

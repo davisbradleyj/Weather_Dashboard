@@ -12,14 +12,17 @@
 
 <body>
     <header>
+        <!-- Header bar -->
         <h1 class="text-white bg-dark text-center py-3 mb-0">Weather Dashboard</h1>
     </header>
-    <div class="container ml-0 mr-0 mw-100">
+        <!-- Main information area, all data search and data fields -->
+    <main class="container ml-0 mr-0 mw-100">
         <div class="row">
             <div class="col-3 pl-3 pt-2 card card-body bg-light border-0">
                 <h5>Search for a City:</h5>
                 <div class="form-group mb-0">
                     <div class="input-group">
+                        <!-- Search bar for new cities -->
                         <input type="search" class="form-control" id="inputCity" style="width: 200px">
                         <button type="submit" class="btn btn-primary" id="inputButton">Go!</button>
                         </span>
@@ -27,24 +30,29 @@
                 </div>
                 <hr>
                 <div>
+                    <!-- Assorted buttons from past searches -->
                     <div id="cityButton"></div>
                 </div>
             </div>
+            <!-- Current Weather and Forecast information -->
             <div class="col-9 card border-0">
                 <div class="row">
+                    <!-- Current forecast setcion -->
                     <div class="card card-body mx-3 my-3 text-dark">
-                        <h4 class="strong pt-2" id="city">City</h4>
-                        <div class="pt-2" id="cityTemp">Temp</div>
-                        <div class="pt-2" id="cityHumid">Humid</div>
-                        <div class="pt-2" id="cityWind">Wind</div>
-                        <div class="pt-2 float-left" id="cityUv">UV</div>
+                        <h4 class="strong pt-2" id="city"></h4>
+                        <div class="pt-2" id="cityTemp"></div>
+                        <div class="pt-2" id="cityHumid"></div>
+                        <div class="pt-2" id="cityWind"></div>
+                        <div class="pt-2 float-left">UV Index: <button type="button" class="btn uvButton"></button></div>
                     </div>
                 </div>
+                <!-- 5 day forecast setcion -->
                 <div class="row">
                     <div>
                         <h4 class="ml-3 pb-1">5-Day Forecast:</h4>
                     </div>
                 </div>
+                <!-- Individual day cards - could be adjusted in the future to display dynamically -->
                 <div class="row">
                     <div class="card card-body ml-3 mr-3 px-2 py-2 mw-20 float-left text-white bg-primary">
                         <h5 class="strong pb-2" id="day1"></h5>
@@ -79,7 +87,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </main>main>
 
 
 
