@@ -44,7 +44,7 @@ function renderCities() {
     // Then dynamicaly generating buttons for each city in the array
     var newCity = $("<button>");
     // Adding a class of movie-btn to our button
-    newCity.addClass("btn btn-block");
+    newCity.addClass("btn btn-block newCity");
     // Add an id to style the button
     newCity.attr("id", "cityBtn");
     // Adding a data-attribute
