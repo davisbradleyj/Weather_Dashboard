@@ -88,7 +88,7 @@ function currForecast() {
     lat = forecast.coord.lat
     long = forecast.coord.lon
     $.ajax({
-      url: 'http://api.openweathermap.org/data/2.5/uvi?appid=0337ee5c21f2fbff84511550c3460591&lat=' + lat + '&lon=' + long,
+      url: 'https://api.openweathermap.org/data/2.5/uvi?appid=0337ee5c21f2fbff84511550c3460591&lat=' + lat + '&lon=' + long,
       method: "GET"
     }).then(function (response) {
       uV = response.value
